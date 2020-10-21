@@ -40,5 +40,5 @@ pipenv shell
 ## RUN
 Para rodar o script, execute:
 ```
-python main.py 
+python app/main.py 
 ```
