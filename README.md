@@ -3,6 +3,7 @@
 ## O que faz?
 Este pequeno aplicativo busca o código de barras para pagamento do boleto da [Equatorial Energia - Pará](https://pa.equatorialenergia.com.br/) na opção *não é o titular e quer pagar*.
 Deverás fornecer a conta contrato para gerar o código. Caso não haja pendências para pagamento, serás informado com a mensagem *Não há contas registradas no momento*
+Nesta versão, o código é exibido no terminal
 
 ## Dependências
 
