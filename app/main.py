@@ -15,8 +15,7 @@ def webdriver_options_setup():
 def webdriver_exec_setup(webdriver_name, option):
 
     local_path = os.getcwd()
-    geckodriver_name = webdriver_name
-    geckodriver_location = os.path.join(local_path, geckodriver_name)
+    geckodriver_location = os.path.join(local_path, webdriver_name)
 
     driver = webdriver.Firefox(options=option, executable_path=geckodriver_location)
 
