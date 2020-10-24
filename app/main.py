@@ -1,8 +1,8 @@
-import requests
 import time
+import os
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-import os
+
 
 # Setup Gecko/Firefox WebDriver
 def webdriver_options_setup():
@@ -66,15 +66,13 @@ def main():
             # print(tr.get_attribute('data-referencia'))
             # print(tr.get_attribute('data-bill-value'))
             # print(tr.get_attribute('data-codigo-pagamento'))
-            contas.append( \
-            	{ \
-            		identifica_fatura: {"data-vencimento": tr.get_attribute('data-vencimento'), \
-            			"mes_referencia": tr.get_attribute('data-referencia'), \
-            			"valor": tr.get_attribute('data-bill-value'), \
-            			"codigo_pagamento": tr.get_attribute('data-codigo-pagamento'), \
-            		},
+            contas.append({ \
+            	identifica_fatura: {"data-vencimento": tr.get_attribute('data-vencimento'), \
+            		"mes_referencia": tr.get_attribute('data-referencia'), \
+            		"valor": tr.get_attribute('data-bill-value'), \
+            		"codigo_pagamento": tr.get_attribute('data-codigo-pagamento'), \
             	}, \
-            )
+            })
 
         identifica_fatura = identifica_fatura + 1
 
