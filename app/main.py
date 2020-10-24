@@ -22,7 +22,7 @@ def webdriver_exec_setup(webdriver_name, option):
     return driver
 
 def set_user_number(user_number='3011207447'):
-    # user_number = input("Digite o número da conta contrato")    
+    # user_number = input("Digite o número da conta contrato")
     # User infos for Checking
     #conta_contrato = '3013917131'
 
@@ -57,15 +57,32 @@ def main():
         print('Não há contas registradas no momento')
         exit(0)
 
+    contas = []
+    identifica_fatura = 0
+
     for bill in bills:
         for tr in bill.find_elements_by_xpath('.//tr'):
-            print(tr.get_attribute('data-vencimento'))
-            print(tr.get_attribute('data-referencia'))
-            print(tr.get_attribute('data-bill-value'))
-            print(tr.get_attribute('data-codigo-pagamento'))
+            # print(tr.get_attribute('data-vencimento'))
+            # print(tr.get_attribute('data-referencia'))
+            # print(tr.get_attribute('data-bill-value'))
+            # print(tr.get_attribute('data-codigo-pagamento'))
+            contas.append( \
+            	{ \
+            		identifica_fatura: {"data-vencimento": tr.get_attribute('data-vencimento'), \
+            			"mes_referencia": tr.get_attribute('data-referencia'), \
+            			"valor": tr.get_attribute('data-bill-value'), \
+            			"codigo_pagamento": tr.get_attribute('data-codigo-pagamento'), \
+            		},
+            	}, \
+            )
+
+        identifica_fatura = identifica_fatura + 1
 
     time.sleep(5)
     driver.quit()
+    print("=======")
+    print(contas)
+    print()
 
 if __name__ == '__main__':
     main()
